@@ -22,7 +22,7 @@ public class EmployeeController {
 	@Autowired
     private EmployeeService service;
 
-    @GetMapping("/")
+    @GetMapping({"/",""})
     public String viewHomePage(Model model, @RequestParam(defaultValue = "0") int page) {
         model.addAttribute("employees", service.listAll(PageRequest.of(page, 5)));
         model.addAttribute("currentPage", page);
